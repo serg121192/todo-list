@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  <div
+      id="page-content"
+      class="page
+             container-fluid
+             vh-100
+             d-flex
+             flex-column
+             justify-content-between
+             text-white"
+  >
+    {% if user.is_authenticated %}
+      <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1 text-center">
+        <h1 class="fade-in">Your TODO List consists the following content:</h1>
+        <hr>
+        <ol class="inline-list mb-4 fade-in">
+          <li>Number of your tasks: {{ number_of_tasks }}</li>
+          <li>Number of your tags: {{ number_of_tags }}</li>
+        </ol>
+      </div>
+    {% else %}
+      <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1 text-center">
+        <h1 class="mb-4 fade-in">Welcome to the TODO List Service</h1>
+        <h3 class="fade-in">Join us to manage your tasks</h3>
+      </div>
+    {% endif %}
+
+    <div class="text-center pb-3">
+      <hr>
+      <p>Your visits: {{ number_of_visits }} time{{ number_of_visits|pluralize }}</p>
+    </div>
+  </div>
+{% endblock %}

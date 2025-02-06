@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div id="page-content" class="page container-fluid">
+    <h1>Task Deletion</h1>
+    <p>You're going to delete the task:
+      <strong>{{ task.title }}</strong>
+    </p>
+    <p>
+      <i>
+        If you're really sure to delete this task, press <strong>"Delete"</strong> button below.
+      </i>
+    </p>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input
+          type="submit"
+          value="Delete"
+          class="btn btn-danger"
+      >
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,239 @@
+[
+{
+    "model": "todolist.task",
+    "pk": 1,
+    "fields": {
+        "title": "Buy a bread for family",
+        "description": "Buy:\r\n1 black bread\r\n1 white baguet",
+        "created_at": "2025-02-03T10:44:10.305Z",
+        "deadline": null,
+        "current_date": "2025-02-04T07:22:32.752Z",
+        "status": false,
+        "user": 1,
+        "tags": [
+            2,
+            1
+        ]
+    }
+},
+{
+    "model": "todolist.task",
+    "pk": 2,
+    "fields": {
+        "title": "Do a homework",
+        "description": "Math,\r\nLiterature,\r\nPhysics,\r\nChemistry",
+        "created_at": "2025-02-03T12:25:45.617Z",
+        "deadline": null,
+        "current_date": "2025-02-04T07:22:32.752Z",
+        "status": true,
+        "user": 1,
+        "tags": []
+    }
+},
+{
+    "model": "todolist.task",
+    "pk": 3,
+    "fields": {
+        "title": "Prepare a dinner",
+        "description": "Red soup\r\npasta with mushrooms",
+        "created_at": "2025-02-04T07:36:50.925Z",
+        "deadline": "2025-01-19T22:00:00Z",
+        "current_date": "2025-02-04T07:36:50.913Z",
+        "status": false,
+        "user": 1,
+        "tags": []
+    }
+},
+{
+    "model": "todolist.task",
+    "pk": 4,
+    "fields": {
+        "title": "Create a layout of webpage",
+        "description": "Design\r\nHTML\r\nCSS",
+        "created_at": "2025-02-04T09:30:30.136Z",
+        "deadline": "2025-02-19T22:00:00Z",
+        "current_date": "2025-02-04T09:30:30.136Z",
+        "status": false,
+        "user": 1,
+        "tags": []
+    }
+},
+{
+    "model": "todolist.task",
+    "pk": 5,
+    "fields": {
+        "title": "Test task -1",
+        "description": "test",
+        "created_at": "2025-02-05T14:46:01.723Z",
+        "deadline": null,
+        "current_date": "2025-02-05T14:46:01.722Z",
+        "status": false,
+        "user": 1,
+        "tags": []
+    }
+},
+{
+    "model": "todolist.task",
+    "pk": 6,
+    "fields": {
+        "title": "test task -2",
+        "description": "test",
+        "created_at": "2025-02-05T14:46:22.794Z",
+        "deadline": null,
+        "current_date": "2025-02-05T14:46:22.793Z",
+        "status": false,
+        "user": 1,
+        "tags": []
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 1,
+    "fields": {
+        "name": "shop",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 2,
+    "fields": {
+        "name": "backery",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 3,
+    "fields": {
+        "name": "school",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 4,
+    "fields": {
+        "name": "kitchen",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 5,
+    "fields": {
+        "name": "study",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 6,
+    "fields": {
+        "name": "art",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 7,
+    "fields": {
+        "name": "hobby",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 8,
+    "fields": {
+        "name": "football",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 9,
+    "fields": {
+        "name": "theater",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 10,
+    "fields": {
+        "name": "cinema",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 11,
+    "fields": {
+        "name": "social",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.tag",
+    "pk": 12,
+    "fields": {
+        "name": "test-tag",
+        "user": 1
+    }
+},
+{
+    "model": "todolist.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$YNioVcUsb8PlhuQ3RYzZtt$xAnvftJOCLXwVuwlZWpwLKYr3afrnGlWRXH0p2pPH78=",
+        "last_login": "2025-02-06T14:19:28.925Z",
+        "is_superuser": true,
+        "username": "admin.user",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@todo.list",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-03T10:33:45.909Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "todolist.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$7Jh3crqlDFplKmX97woFeD$hTuk/M9kJJfMkpjGKkjaKtYmwBmqQ9tEp8HSdrgiT2M=",
+        "last_login": "2025-02-04T16:05:47.270Z",
+        "is_superuser": false,
+        "username": "test_user",
+        "first_name": "",
+        "last_name": "",
+        "email": "test_user@todo.list",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-04T16:05:02.144Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "todolist.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$sFrS0nlZ2k77jK4DhOHYi2$u+NwbMYCfPmw1lnvPAh3+PhO/CYkfQfikhsTF+IKE7w=",
+        "last_login": "2025-02-06T14:49:18.513Z",
+        "is_superuser": false,
+        "username": "testuser",
+        "first_name": "",
+        "last_name": "",
+        "email": "testuser@todo.list",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-06T14:49:08.346Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

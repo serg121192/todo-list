@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div id="page-content" class="page container-fluid">
+    <h1>Deleting Tag</h1>
+    <p>You're going to delete a tag: <strong>{{ tag.name }}</strong></p>
+    <p>
+      <i>
+        If you're really sure to delete a tag, press a <strong>"Delete"</strong> button bellow.
+      </i>
+    </p>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input
+          type="submit"
+          value="Delete"
+          class="btn btn-danger"
+      >
+    </form>
+  </div>
+{% endblock %}

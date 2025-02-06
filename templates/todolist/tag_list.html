@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div id="page-content" class="page container-fluid">
+    <div class="d-flex justify-content-center align-items-center position-relative my-3 py-3">
+      <h1 class="text-white position-absolute" style="left: 50%; transform: translateX(-50%);">Tags List</h1>
+      <a
+          href="{% url 'todolist:tag-create' %}"
+          class="btn btn-primary position-absolute"
+          style="right: 0;"
+      >
+        Add Tag
+      </a>
+    </div>
+    <div class="mt-4">
+      <form action="" method="get" class="text-white">
+      {% csrf_token %}
+      {{ search_form|crispy }}
+      <input
+          type="submit"
+          value="Search"
+          class="btn btn-info"
+      >
+    </form>
+    </div>
+    <hr class="text-white-50">
+    {% if not user.tags.all %}
+      <p class="text-white">There are no created tags!</p>
+    {% else %}
+      <table class="table table-bordered bg-white">
+        <thead>
+          <tr>
+            <th class="text-center">
+              Name
+            </th>
+            <th class="text-center">
+              Update
+            </th>
+            <th class="text-center">
+              Delete
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tag in page_obj %}
+            <tr>
+              <td class="d-flex justify-content-center align-items-center">
+                {{ tag.name }}
+              </td>
+              <td class="text-center">
+                <a
+                    href="{% url 'todolist:tag-update' pk=tag.id %}"
+                    class="btn btn-info d-inline-block"
+                >
+                  Update
+                </a>
+              </td>
+              <td class="text-center">
+                <a
+                    href="{% url 'todolist:tag-delete' pk=tag.id %}"
+                    class="btn btn-danger d-inline-block"
+                >
+                  Delete
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}

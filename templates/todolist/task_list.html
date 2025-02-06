@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div
+      id="page-content"
+      class="page
+             container-fluid
+             my-2
+             py-3
+             scroll-smooth"
+  >
+    <div
+        class="d-flex
+               justify-content-center
+               align-items-center
+               w-100
+               position-relative
+               my-2
+               py-3"
+    >
+      <h1
+          class="text-white position-absolute my-4 py-4"
+          style="left: 50%; transform: translateX(-50%);"
+      >
+        Your Tasks List
+      </h1>
+      <a
+          href="{% url 'todolist:task-create' %}"
+          class="btn btn-primary position-absolute my-4"
+          style="right: 0;"
+      >
+        Add Task
+      </a>
+    </div>
+    <form action="" method="get" class="text-white mt-4">
+      {{ search_form|crispy }}
+      <input
+          type="submit"
+          value="Search"
+          class="btn btn-info text-white"
+      >
+    </form>
+    <hr class="text-white-50">
+    {% if not user.tasks.all %}
+      <p class="text-white">There are no created tasks!</p>
+    {% else %}
+      <ol class="list-group task-list">
+        {% for task in tasks %}
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5>
+                <strong>{{ task.title }}</strong>
+                <span style="color: {{ task.status|yesno:'green;,red;' }}">
+                  {{ task.status|yesno:"Done,Not Done" }}
+                </span>
+              </h5>
+              <form
+                  action="{% url 'todolist:task-toggle-status' pk=task.id %}"
+                  method="post"
+              >
+                {% csrf_token %}
+                <input
+                    type="submit"
+                    value="{{ task.status|yesno:'Undo,Complete' }}"
+                    class="btn
+                           {{ task.status|yesno:'btn-secondary,btn-success' }}
+                           mx-2"
+                >
+              </form>
+            </div>
+            <p>
+              <strong>
+                Task ID:
+              </strong>
+              {{ task.id }}
+            </p>
+            <p>
+              <strong>Description:</strong>
+              {{ task.description }}
+            </p>
+            <p>
+              <strong>Created at:</strong>
+              {{ task.created_at|date:"d.m.Y, H:m:s" }}
+            </p>
+            <p>
+              {% if task.deadline %}
+                <strong>Deadline:</strong>
+                {{ task.deadline|date:"d.m.Y H:m:s" }}
+                {% if not task.status %}
+                  {% if task.deadline < task.current_date%}
+                    <span class="bg-danger text-white px-2">Expired</span>
+                  {% else %}
+                    <span class="bg-info text-white px-2">In progress</span>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            </p>
+            <p>
+              <strong>Tags:</strong>
+              {% if task.tags.all %}
+                {% for tag in task.tags.all %}
+                  {{ tag.name }},
+                {% endfor %}
+              {% else %}
+                <span>
+                  Task has no tags.
+                </span>
+              {% endif %}
+            </p>
+            <hr>
+            <div
+                class="d-flex
+                       justify-content-between
+                       align-items-center
+                       mx-2"
+            >
+              <a
+                  href="{% url 'todolist:task-update' pk=task.id %}"
+                  class="btn btn-info"
+              >
+                Update
+              </a>
+              <a
+                  href="{% url 'todolist:task-delete' pk=task.id %}"
+                  class="btn btn-danger"
+              >
+                Delete
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </div>
+{% endblock %}
