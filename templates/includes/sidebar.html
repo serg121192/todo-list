@@ -1,0 +1,35 @@
+<div class="d-flex vh-100">
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar d-flex flex-column align-items-center justify-content-center px-2">
+    <ul class="list-group w-100">
+      {% if user.is_authenticated %}
+        <div class="mx-4 text-center">
+          <h5 class="text-white">Hello, <strong>{{ user.username }}</strong>!</h5>
+          <hr>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Logout" class="btn btn-danger w-100 mb-4">
+          </form>
+        </div>
+      {% else %}
+        <div class="mb-4 text-center">
+          <h5 class="text-white">Hello, <strong>Visitor</strong>!</h5>
+          <hr>
+          <div class="d-flex justify-content-center">
+            <a href="{% url 'login' %}" class="btn btn-primary mx-1">Login</a>
+            <a href="{% url 'todolist:user-create' %}" class="btn btn-success">Sign Up</a>
+          </div>
+        </div>
+      {% endif %}
+      <li class="list-group-item text-center">
+        <a href="{% url 'index' %}" class="text-decoration-none">Home</a>
+      </li>
+      <li class="list-group-item text-center">
+        <a href="{% url 'todolist:task-list' %}" class="text-decoration-none">Tasks</a>
+      </li>
+      <li class="list-group-item text-center">
+        <a href="{% url 'todolist:tag-list' %}" class="text-decoration-none">Tags</a>
+      </li>
+    </ul>
+  </div>
+</div>

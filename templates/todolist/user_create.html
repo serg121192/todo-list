@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div id="page-content"
+       class="page
+              d-flex
+              flex-column
+              min-vh-100
+              justify-content-center
+              align-items-center
+              text-start
+              w-100
+              text-white"
+  >
+    <div class="col-12 col-sm-10 col-md-8 col-lg-8">
+      <h1 class="mb-4 text-center">Create a new user of TODO List Service</h1>
+      <form
+          action="?page={% url 'login' %}"
+          method="post"
+      >
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input
+            type="submit"
+            value="Create"
+            class="btn btn-success w-100"
+        >
+      </form>
+    </div>
+  </div>
+{% endblock %}
